@@ -1,0 +1,6 @@
+C:\Users\Erkebulan\Desktop\PT 2017\week 1\PrimeNum\PrimeNum\bin\Debug\PrimeNum.exe.config
+C:\Users\Erkebulan\Desktop\PT 2017\week 1\PrimeNum\PrimeNum\bin\Debug\PrimeNum.exe
+C:\Users\Erkebulan\Desktop\PT 2017\week 1\PrimeNum\PrimeNum\bin\Debug\PrimeNum.pdb
+C:\Users\Erkebulan\Desktop\PT 2017\week 1\PrimeNum\PrimeNum\obj\Debug\PrimeNum.csprojResolveAssemblyReference.cache
+C:\Users\Erkebulan\Desktop\PT 2017\week 1\PrimeNum\PrimeNum\obj\Debug\PrimeNum.exe
+C:\Users\Erkebulan\Desktop\PT 2017\week 1\PrimeNum\PrimeNum\obj\Debug\PrimeNum.pdb

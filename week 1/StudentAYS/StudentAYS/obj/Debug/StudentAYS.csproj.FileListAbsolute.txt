@@ -1,0 +1,6 @@
+C:\Users\Erkebulan\Desktop\PT 2017\week 1\StudentAYS\StudentAYS\bin\Debug\StudentAYS.exe.config
+C:\Users\Erkebulan\Desktop\PT 2017\week 1\StudentAYS\StudentAYS\bin\Debug\StudentAYS.exe
+C:\Users\Erkebulan\Desktop\PT 2017\week 1\StudentAYS\StudentAYS\bin\Debug\StudentAYS.pdb
+C:\Users\Erkebulan\Desktop\PT 2017\week 1\StudentAYS\StudentAYS\obj\Debug\StudentAYS.csprojResolveAssemblyReference.cache
+C:\Users\Erkebulan\Desktop\PT 2017\week 1\StudentAYS\StudentAYS\obj\Debug\StudentAYS.exe
+C:\Users\Erkebulan\Desktop\PT 2017\week 1\StudentAYS\StudentAYS\obj\Debug\StudentAYS.pdb
