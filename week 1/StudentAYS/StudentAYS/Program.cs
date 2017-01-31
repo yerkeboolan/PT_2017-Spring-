@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace StudentAYS
-{
+{   
         class Student
         {
             private string firstName, lastName;
