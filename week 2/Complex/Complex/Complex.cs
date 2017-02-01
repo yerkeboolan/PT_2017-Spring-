@@ -37,11 +37,11 @@ namespace Complex
             }
         }
 
-        public static Complex operator +(Complex x, Complex y)
+        public static Complex operator -(Complex x, Complex y)
         {
             Complex c = new Complex();
-            c.A = x.A + y.A;
-            c.B = x.B + y.B;
+            c.A = x.A - y.A;
+            c.B = x.B - y.B;
             return c; 
         }
 

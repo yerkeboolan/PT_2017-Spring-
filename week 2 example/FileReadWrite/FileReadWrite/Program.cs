@@ -18,7 +18,7 @@ namespace FileReadWrite
         {
             FileStream fs = new FileStream(@"c:\test\test.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             StreamWriter sw = new StreamWriter(fs);
-
+                    
             sw.Write("сопрано");
 
             sw.Close();
@@ -37,7 +37,7 @@ namespace FileReadWrite
 
             for (int i = 0; i < arr.Length; i++)
             {
-          int tmp = int.Parse(arr[i]);
+          int tmp = int.Parse(arr[i]);  
                 sum += tmp;
             }
 

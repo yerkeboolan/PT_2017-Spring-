@@ -10,9 +10,9 @@ namespace Complex
     {
         static void Main(string[] args)
         {
-            Complex x = new Complex(3, 7);
-            Complex y = new Complex(4, 8);
-            Complex c = x + y;
+            Complex x = new Complex(4, 8);
+            Complex y = new Complex(3, 7);
+            Complex c = x - y;
 
             Console.Write(c);
 
