@@ -8,22 +8,25 @@ namespace PrimeNumberNew
 {
     class Program
     {
-           
-            static int IsPrime(int x)
+
+        static int IsPrime(int x)
+        {
+            int a = x;
+            int c = 0;
+            for (int i = 1; i < a; i++)
             {
-                int a = x;
-                int с = 0;
-                for (int i = 1; i <= a; i++)
-                {
-                    if (a % i == 0)
-                        с++;
-                }
+                if (a % i == 0)
+                    c++;
+            }
 
-                if (с == 2 || a == 1)
-                    return a;
+            if (c == 2 || a == 1)
+            {
+                return a;
+            } else
+            {
+                return 0;
+            }
 
-                else
-                    return 0;
             }
 
             static void Main(string[] args)

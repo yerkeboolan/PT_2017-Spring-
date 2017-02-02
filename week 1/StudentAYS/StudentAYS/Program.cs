@@ -10,7 +10,12 @@ namespace StudentAYS
         {
             private string firstName, lastName;
             private int gpa;
+            
             public Student() { }
+            public Student(string firstName)
+        {
+            this.firstName = firstName;
+        }
             public Student(string firstName, string lastName, int gpa)
             {
                 this.firstName = firstName;
@@ -28,7 +33,7 @@ namespace StudentAYS
         {
             static void Main()
             {
-                Student student = new Student("Aysultan", "Qali", 4);
+                Student student = new Student("Yerkebulan");
 
                 Console.WriteLine(student);
                 Console.ReadKey();

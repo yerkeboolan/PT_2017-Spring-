@@ -13,7 +13,7 @@ namespace MinPrimeNum
         {
             int a = x;
             int с = 0;
-            for (int i = 1; i <= a; i++)
+            for (int i = 2; i <= a; i++)
             {
                 if (a % i == 0)
                     с++;
@@ -34,7 +34,7 @@ namespace MinPrimeNum
             string[] arr = s.Split();
 
 
-            int mini = 900000000;
+            int mini = int.Parse(arr[0]);
             for (int i = 0; i < arr.Length ; i++)
             {
                 int t = int.Parse(arr[i]);
@@ -48,22 +48,23 @@ namespace MinPrimeNum
             }
 
 
-            f2(mini);
+           
             sr.Close();
             fs.Close();
+            f2(mini);
 
-            Console.ReadKey();
         }
 
         static void f2(int k)
         { 
-            FileStream sf = new FileStream(@"c:\test\new file.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            FileStream sf = new FileStream(@"c:\test\newfile2.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             StreamWriter rs = new StreamWriter(sf);
 
             int a = k;
-            rs.WriteLine(a);
-
+            rs.Write(a);
+            rs.Close();
             sf.Close();
+            
 
 
             Console.ReadKey();

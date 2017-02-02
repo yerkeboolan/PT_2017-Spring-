@@ -18,7 +18,8 @@ namespace MaxMin
             string s = sr.ReadLine(); // "1 2 3 4 5 6 7"
             string[] arr = s.Split(); // ["1", "2", "3", "4", "5", "6", "7"];
 
-            int maxi = 0;
+
+            int maxi = int.Parse(arr[0]);
 
             for (int i = 0; i < arr.Length; i++)
             {
@@ -28,11 +29,7 @@ namespace MaxMin
                     maxi = t;
                 }
 
-                /*   foreach (string ss in arr)
-                   {
-                       maxi = int.Parse(ss);
-                   } */
-
+              
             }
                 Console.Write(maxi);
 
@@ -52,7 +49,7 @@ namespace MaxMin
             string s = sr.ReadLine(); // "1 2 3 4 5 6 7"
             string[] arr = s.Split(); // ["1", "2", "3", "4", "5", "6", "7"];
 
-            int mini = 900000000;
+            int mini = int.Parse(arr[0]);
 
             for (int i = 0; i < arr.Length; i++)
             {
@@ -62,11 +59,7 @@ namespace MaxMin
                     mini = t;
                 }
 
-                /*   foreach (string ss in arr)
-                   {
-                       maxi = int.Parse(ss);
-                   } */
-
+              
             }
             Console.Write(mini);
 
