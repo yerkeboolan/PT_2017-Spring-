@@ -9,6 +9,22 @@ namespace MinPrimeNum
 {
     class Program
     {
+        static int IsPrime(int x)
+        {
+            int a = x;
+            int с = 0;
+            for (int i = 1; i <= a; i++)
+            {
+                if (a % i == 0)
+                    с++;
+            }
+
+            if (с == 2)
+                return a;
+
+            else
+                return 0;
+        }
         static void f1()
         {
             FileStream fs = new FileStream(@"c:\test\file new.txt", FileMode.Open, FileAccess.Read);
@@ -17,42 +33,40 @@ namespace MinPrimeNum
             string s = sr.ReadLine();
             string[] arr = s.Split();
 
-            string[] arr = 
 
-            for (Int64 i = 0; i < arr.Length; i++)
+            int mini = 900000000;
+            for (int i = 0; i < arr.Length ; i++)
             {
-                if (array[i] < array[minVal])
+                int t = int.Parse(arr[i]);
+                if(IsPrime(t) == t)
                 {
-                    minVal = array[i];
-                }
+                        if (t < mini)
+                        {
+                            mini = t;
+                        }
+                    }
             }
 
-            foreach (string ss in arr)
-            {
-                minVal = int.Parse(ss);
-            }
 
-            Console.Write(minVal);
-
+            f2(mini);
             sr.Close();
             fs.Close();
 
             Console.ReadKey();
+        }
 
-            /*      bool prime = true;
+        static void f2(int k)
+        { 
+            FileStream sf = new FileStream(@"c:\test\new file.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            StreamWriter rs = new StreamWriter(sf);
 
-                  for (int i = 2; i <= mini / 2; i++)
-                  {
-                      if (mini % i == 0)
-                      {
-                          prime = false;
-                          break;
-                      }
-                  } */
+            int a = k;
+            rs.WriteLine(a);
 
-
+            sf.Close();
 
 
+            Console.ReadKey();
         }
 
 
