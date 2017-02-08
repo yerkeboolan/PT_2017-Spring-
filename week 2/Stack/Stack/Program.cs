@@ -16,14 +16,14 @@ namespace Stack
             FileInfo[] files = dir.GetFiles();
             DirectoryInfo[] dirs = dir.GetDirectories();
 
-            foreach(FileInfo f in files)
+            foreach (FileInfo f in files)
             {
                 for (int i = 0; i < depth; i++)
                     Console.Write(" ");
                 Console.WriteLine(f.Name);
             }
 
-            foreach(DirectoryInfo d in dirs)
+            foreach (DirectoryInfo d in dirs)
             {
                 for (int i = 0; i < depth; i++)
                     Console.Write(" ");
@@ -37,7 +37,7 @@ namespace Stack
             Stack<string> directory = new Stack<string>();
             directory.Push(path);
 
-            while(directory.Count > 0)
+            while (directory.Count > 0)
             {
                 DirectoryInfo dir = new DirectoryInfo(directory.Pop());
 
@@ -48,17 +48,17 @@ namespace Stack
 
                 Console.WriteLine(dir.Name);
 
-                foreach(FileInfo file in files)
+                foreach (FileInfo file in files)
                 {
                     Console.WriteLine(" " + file.Name);
                 }
 
-                foreach(DirectoryInfo _dir in dirs)
+                foreach (DirectoryInfo _dir in dirs)
                 {
                     Console.WriteLine(" " + _dir);
                     directory.Push(_dir.FullName);
                 }
-              }
+            }
         }
 
 
@@ -67,7 +67,8 @@ namespace Stack
 
         static void Main(string[] args)
         {
-            f1(string path, int depth)
+            Stack(@"c:\test");
+
             Console.ReadKey();
         }
     }
