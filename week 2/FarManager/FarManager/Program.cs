@@ -12,6 +12,7 @@ namespace FarManager
     {
         static void showInfo(DirectoryInfo dir, int cursor)
         {
+            Console.Clear();
             FileSystemInfo[] infos = dir.GetFileSystemInfos();
             for(int i = 0; i < infos.Length; i++)
             {
@@ -77,7 +78,7 @@ namespace FarManager
                         }
                         else
                         {
-                            comp(@"c:\test");
+                            comp(fs.FullName);
                         }
                         break;
                     case ConsoleKey.Escape:
