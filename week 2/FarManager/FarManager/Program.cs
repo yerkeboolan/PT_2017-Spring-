@@ -26,7 +26,7 @@ namespace FarManager
 
                 if(infos[i].GetType() == typeof(DirectoryInfo))
                 {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.ForegroundColor = ConsoleColor.Red;
                 } else
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;

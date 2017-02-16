@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MySnake.Model
+namespace RealSnake.Model
 {
     class Snake
     {
@@ -19,36 +19,35 @@ namespace MySnake.Model
             body.Add(new Point(5, 6));
             body.Add(new Point(4, 6));
             body.Add(new Point(3, 6));
-            body.Add(new Point(2, 6));
+            body.Add(new Point(2., 6));
             body.Add(new Point(1, 6));
-            color = ConsoleColor.Blue;
-            sign = 'q';
+            color = ConsoleColor.Yellow;
+            sign = 'a';
         }
 
-        public void move(int dx, int dy)
-        {
-            for (int i = body.Count - 1; i > 0; --i)
+        public void move(int dx, int dy) 
             {
-                body[i].x = body[i - 1].x;
-                body[i].y = body[i - 1].y;
-
+            for(int i = body.Count - 1; int > 0; --i)
+            {
+            body[i].x = body[i - 1].x;
+            body[i].y = body[i - 1].y;
             }
 
-            body[0].x += dx;
-            body[0].y += dy;
+        body[0].x += dx;
+        body[0].y += dy;
         }
 
         public void draw()
-            {
+        {
             Console.Clear();
             int i = 0;
-            foreach (Point p in body)
+            foreach(Point p in body)
             {
                 Console.ForegroundColor = (i == 0) ? ConsoleColor.Red : color;
-                Console.SetCursorPosition(p.x, p.y);
-                Console.Write(sign);
-                i++;
-            }
+                Console.SetCursorPosition(p.x)
+            } 
         }
+
     }
 }
+

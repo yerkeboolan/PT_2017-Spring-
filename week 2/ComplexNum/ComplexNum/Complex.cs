@@ -70,22 +70,22 @@ namespace ComplexNum
 
         public override string ToString()
         {
-            int q = gcd(x, y);
-            if(x / q == 0 )
+            int d = gcd(x, y);
+            if(x / d == 0 )
             {
                 return "0";
             }
-            else if(x / q == y / q)
+            else if(x / d == y / d)
             {
                 return "1";
             }
-            else if(y / q == 0)
+            else if(y / d == 0)
             {
                 return "Error";
             }
             else
             {
-                return x / q + "/" + y / q;  
+                return x / d + "/" + y / d;  
             }
         }
         static int gcd(int x, int y)
@@ -101,4 +101,6 @@ namespace ComplexNum
 
     }
     }
+
+    
 
