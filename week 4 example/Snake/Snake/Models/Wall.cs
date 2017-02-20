@@ -12,6 +12,7 @@ namespace Snake.Models
         public ConsoleColor color = ConsoleColor.Red;
         public List<Point> body = new List<Point>();
         public char sign = '#';
+     
 
         public Wall(int level)
         {
