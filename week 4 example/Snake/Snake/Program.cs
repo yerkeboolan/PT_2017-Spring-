@@ -10,28 +10,7 @@ namespace Snake
 {
     class Program
     {
-        public static void Game_Over(int cnt, int Max)
-        {
-            Console.Clear();
-            Console.SetCursorPosition(10, 5);
-            Console.WriteLine("GAME OVER");
-            Console.SetCursorPosition(10, 6);
-            Console.WriteLine("Your score: " + cnt);
-            Console.SetCursorPosition(10, 7);
-            Console.WriteLine("Max score: " + Max);
-            Console.SetCursorPosition(10, 8);
-            Console.WriteLine("Repeate?");
-            Console.SetCursorPosition(10, 9);
-            Console.WriteLine("Y || N");
-            while (true)
-            {
-                ConsoleKeyInfo p = Console.ReadKey();
-                if (p.Key == ConsoleKey.Y)
-                    break;
-                if (p.Key == ConsoleKey.N)
-                    Environment.Exit(0);
-            }
-        }
+        
         static bool GameOver = false;
         static Snake snake = new Snake();
         static Food food = new Food();
@@ -75,11 +54,11 @@ namespace Snake
                 {
                     food.SetRandomPosition();
                 }
-                if (snake.body.Count == 4)
+                if (snake.body.Count == 10)
                 {
                     wall = new Wall(2);
                 }
-                if (snake.body.Count == 10)
+                if (snake.body.Count == 15)
                 {
                     wall = new Wall(3);
                 }

@@ -10,7 +10,7 @@ namespace Snake.Models
     {
         public Point location;
         public ConsoleColor color = ConsoleColor.Green;
-        public char sign = '$';
+        public char sign = '&';
 
         public Food()
         {
