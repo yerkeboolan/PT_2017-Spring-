@@ -34,7 +34,17 @@ namespace MySnakeSuperClasses
                         break;
                     case ConsoleKey.Escape:
                         Game.GameOver = true;
-                        break;     
+                        break;
+                    case ConsoleKey.F2:
+                        Game.snake.save();
+                        Game.wall.save();
+                        Game.food.save();
+                        break;
+                    case ConsoleKey.F3:
+                        Game.snake.release();
+                        Game.wall.release();
+                        Game.food.release();
+                        break;    
                 }
                 
 
@@ -47,7 +57,7 @@ namespace MySnakeSuperClasses
                 {
                     Game.wall.LoadLevel(2);
                 }
-                if (Game.snake.body.Count == 6)
+                if (Game.snake.body.Count == 8)
                 {
                     Game.wall.LoadLevel(3);
                 }

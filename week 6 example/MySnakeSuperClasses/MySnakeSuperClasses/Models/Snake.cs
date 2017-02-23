@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+
+
 namespace MySnakeSuperClasses.Models
 {
+   [Serializable]
     public class Snake : Drawer
-    {
-        
+    { 
+    
             
         public Snake(ConsoleColor color, char sign, List<Point> body) : base(color, sign, body) { }
 
@@ -37,6 +42,7 @@ namespace MySnakeSuperClasses.Models
                 if(Game.snake.body[0].x == Game.wall.body[i].x && Game.snake.body[0].y == Game.wall.body[i].y)
                 {
                     Console.Clear();
+                    Console.BackgroundColor = ConsoleColor.White;
                     Console.SetCursorPosition(10, 10);
                     Console.WriteLine("GAME OVER!");
                     Console.ReadKey();
@@ -48,6 +54,7 @@ namespace MySnakeSuperClasses.Models
                 if(Game.snake.body[0].x == Game.snake.body[i].x && Game.snake.body[0].y == Game.snake.body[i].y)
                 {
                     Console.Clear();
+                    Console.BackgroundColor = ConsoleColor.White;
                     Console.SetCursorPosition(10, 10);
                     Console.WriteLine("GAME OVER!");
                     Console.ReadKey();
@@ -55,15 +62,18 @@ namespace MySnakeSuperClasses.Models
                 }
             }
         }
-  
+
         public bool CanEat(Food f)
         {
-            if(body[0].x == f.body[0].x && body[0].y == f.body[0].y)
+            if (body[0].x == f.body[0].x && body[0].y == f.body[0].y)
             {
                 body.Add(new Point(f.body[0].x, f.body[0].y));
                 return true;
             }
             return false;
         }
-    }
-}
+           
+            
+        }
+    }   
+

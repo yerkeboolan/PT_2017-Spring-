@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace MySnakeSuperClasses.Models
 {
+
     public class Game
     {
         public static bool GameOver;
         public static Snake snake;
         public static Food food;
         public static Wall wall;
-        
+
 
         public static void Init()
         {
@@ -27,18 +30,18 @@ namespace MySnakeSuperClasses.Models
             snake_body.Add(new Point(9, 10));
             snake = new Snake(ConsoleColor.Yellow, 'o', snake_body);
 
-            // food Init
-            List<Point> food_body = new List<Point>();
-            food_body.Add(new Point(0, 0));
-            food = new Food(ConsoleColor.Green, '$', food_body);
 
             // wall Init    
             List<Point> wall_body = new List<Point>();
             wall = new Wall(ConsoleColor.Red, '#', wall_body);
 
-            
+            // food Init
+            List<Point> food_body = new List<Point>();
+            food_body.Add(new Point(0, 0));
+            food = new Food(ConsoleColor.Green, '$', food_body);
+
         }
-       
+
 
         public static void Draw()
         {
@@ -47,5 +50,20 @@ namespace MySnakeSuperClasses.Models
             food.Draw();
             wall.Draw();
         }
+
+     /*   public static void saveGame()
+        {
+            doSerialization();
+        }
+
+        private static void doSerialization()
+        {
+            XmlSerializer a = new XmlSerializer(typeof(Snake));
+            using (FileStream fs = new FileStream("snake.xml", FileMode.Create))
+            {
+                a.Serialize(fs, snake);
+            }
+
+        } */
     }
 }

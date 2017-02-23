@@ -6,38 +6,30 @@ using System.Threading.Tasks;
 
 namespace MySnakeSuperClasses.Models
 {
+    [Serializable]
     public class Food : Drawer
     {
         public Food(ConsoleColor color, char sign, List<Point> body) : base(color, sign, body)
         {
             SetRandomPosition();
         }
+        public Food() { }
 
         public void SetRandomPosition()
         {
             int x = new Random().Next(0, 70);
             int y = new Random().Next(0, 35);
             body[0] = new Point(x, y);
-        
-       
 
+            Point p = new Point(x, y);
 
-            for (int i = 0; i < Game.snake.body.Count; i++)
-            {
-                if (Game.food.body[0].x == Game.snake.body[i].x && Game.food.body[0].y == Game.snake.body[i].y)
-                {
-                    SetRandomPosition();
-                }
-            }
-
-            for (int i = 0; i < Game.wall.body.Count; i++)
-            {
-                if (Game.food.body[0].x == Game.wall.body[i].x && Game.food.body[0].y == Game.wall.body[i].y)
-                {
-                    SetRandomPosition();
-                }
-            }
+            while (Game.snake.body.Contains(p) ||
+                  Game.wall.body.Contains(p))
+                p = new Point(new Random().Next(0, 70), new Random().Next(0, 35));
+            body = new List<Point> { p };
         }
+
+    
 
     }
 }

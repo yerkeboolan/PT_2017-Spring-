@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace MySnakeSuperClasses.Models
 {
+    [Serializable]
     public class Wall: Drawer
     {
         public Wall(ConsoleColor color, char sign, List<Point> body) : base (color, sign, body)

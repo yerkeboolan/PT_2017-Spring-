@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 namespace MySnakeSuperClasses.Models
 {
+
+    [Serializable]
     public class Point
     {
         public int x;
@@ -19,5 +21,7 @@ namespace MySnakeSuperClasses.Models
             x = _x;
             y = _y;
         }
+
+        public Point () { }
     }
 }
