@@ -51,19 +51,59 @@ namespace MySnakeSuperClasses.Models
             wall.Draw();
         }
 
-     /*   public static void saveGame()
+        public static void Cases()
         {
-            doSerialization();
-        }
-
-        private static void doSerialization()
-        {
-            XmlSerializer a = new XmlSerializer(typeof(Snake));
-            using (FileStream fs = new FileStream("snake.xml", FileMode.Create))
+            while (!GameOver)
             {
-                a.Serialize(fs, snake);
-            }
+                Draw();
 
-        } */
+                ConsoleKeyInfo btn = Console.ReadKey();
+                switch (btn.Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        snake.Move(0, -1);
+                        break;
+                    case ConsoleKey.DownArrow:
+                        snake.Move(0, 1);
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        snake.Move(-1, 0);
+                        break;
+                    case ConsoleKey.RightArrow:
+                        snake.Move(1, 0);
+                        break;
+                    case ConsoleKey.Escape:
+                        GameOver = true;
+                        break;
+                    case ConsoleKey.F2:
+                        snake.save();
+                        wall.save();
+                        food.save();
+                        break;
+                    case ConsoleKey.F3:
+                        snake.release();
+                        wall.release();
+                        food.release();
+                        break;
+                }
+
+
+
+                if (snake.CanEat(food))
+                {
+                    food.SetRandomPosition();
+                }
+                if (snake.body.Count == 4)
+                {
+                    wall.LoadLevel(2);
+                }
+                if (snake.body.Count == 8)
+                {
+                    wall.LoadLevel(3);
+                }
+            }
+        }
     }
 }
+    
+    
