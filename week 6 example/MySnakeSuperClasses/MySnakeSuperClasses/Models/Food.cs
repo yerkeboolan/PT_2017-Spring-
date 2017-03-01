@@ -21,17 +21,26 @@ namespace MySnakeSuperClasses.Models
 
         public void SetRandomPosition()
         {
-            int x = new Random().Next(0, 70);
-            int y = new Random().Next(0, 35);
-            body[0] = new Point(x, y);
+            bool ok = true;
+            int x;
+            int y;
 
-            if (ItisNot(body[0], Game.wall.body) || ItisNot(body[0], Game.snake.body))
+            while (ok)
             {
+                ok = false;
 
+                x = new Random().Next(0, 70);
+                y = new Random().Next(0, 35);
+
+
+                if (ItisNot(body[0], Game.wall.body) || ItisNot(body[0], Game.snake.body))
+                {
+                    ok = true;
+                    body[0] = new Point(x, y);
+                }
+
+                
             }
-
-
-               
         }
 
 
