@@ -11,9 +11,13 @@ namespace MySnakeSuperClasses.Models
     {
         public Food(ConsoleColor color, char sign, List<Point> body) : base(color, sign, body)
         {
+
             SetRandomPosition();
+            Delete();
         }
         public Food() { }
+
+
 
         public void SetRandomPosition()
         {
@@ -21,12 +25,37 @@ namespace MySnakeSuperClasses.Models
             int y = new Random().Next(0, 35);
             body[0] = new Point(x, y);
 
-            Point p = new Point(x, y);
+            if (ItisNot(body[0], Game.wall.body) || ItisNot(body[0], Game.snake.body))
+            {
+
+            }
 
 
+               
+        }
+
+
+
+        public void Delete()
+        {
+            Console.SetCursorPosition(body[0].x, body[0].y);
+            Console.Write(' ');
+        }
+
+        public bool ItisNot(Point food, List<Point> body)
+        {
+            foreach (Point p in body)
+            {
+                if (food.x == p.x && food.y == p.y)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
-} 
+}
+
 
     /* while (Game.snake.body.Contains(p) ||
                   Game.wall.body.Contains(p))
