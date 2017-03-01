@@ -36,10 +36,9 @@ namespace MySnakeSuperClasses.Models
                 if (ItisNot(body[0], Game.wall.body) || ItisNot(body[0], Game.snake.body))
                 {
                     ok = true;
-                    body[0] = new Point(x, y);
                 }
+                body[0] = new Point(x, y);
 
-                
             }
         }
 
