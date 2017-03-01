@@ -18,6 +18,7 @@ namespace MySnakeSuperClasses.Models
 
         public void LoadLevel(int level)
         {
+            Delete(body);
             body.Clear();
 
             string filename = string.Format(@"Levels\level{0}.txt", level);
@@ -38,6 +39,15 @@ namespace MySnakeSuperClasses.Models
                 }
                 row++;
             }
+        }
+        public void Delete(List<Point> body)
+        {
+            foreach(Point p in body)
+            {
+                Console.SetCursorPosition(p.x, p.y);
+                Console.Write(' ');
+            }
+            body.Clear();
         }
     }
 }

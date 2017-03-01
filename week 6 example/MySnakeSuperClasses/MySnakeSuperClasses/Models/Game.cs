@@ -51,6 +51,7 @@ namespace MySnakeSuperClasses.Models
             wall.Draw();
         }
 
+        
         public static void Cases()
         {
             while (!GameOver)
@@ -88,14 +89,13 @@ namespace MySnakeSuperClasses.Models
                 }
 
 
-
                 if (snake.CanEat(food))
                 {
-                    food.SetRandomPosition();
+                   food.SetRandomPosition();
                 }
                 if (snake.body.Count == 4)
                 {
-                    wall.LoadLevel(2);
+                   wall.LoadLevel(2);
                 }
                 if (snake.body.Count == 8)
                 {

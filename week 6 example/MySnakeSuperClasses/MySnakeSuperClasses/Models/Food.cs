@@ -29,8 +29,8 @@ namespace MySnakeSuperClasses.Models
             {
                 ok = false;
 
-                x = new Random().Next(0, 70);
-                y = new Random().Next(0, 35);
+                x = new Random().Next(1, 69);
+                y = new Random().Next(1, 34);
 
 
                 if (ItisNot(body[0], Game.wall.body) || ItisNot(body[0], Game.snake.body))

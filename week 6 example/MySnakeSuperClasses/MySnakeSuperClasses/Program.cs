@@ -14,14 +14,20 @@ namespace MySnakeSuperClasses
 
         static void MoveSnake()
         {
-
+           
         }
 
 
         static void Main(string[] args)
         {
             Game.Init();
+
+            Thread t = new Thread(MoveSnake);
+            t.Start();
+
             Game.Cases();
+                
+            
            
             }
         }
