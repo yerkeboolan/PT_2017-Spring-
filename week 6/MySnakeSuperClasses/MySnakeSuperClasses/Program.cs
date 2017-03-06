@@ -9,16 +9,12 @@ using System.Threading.Tasks;
 namespace MySnakeSuperClasses
 {
     class Program
-    { 
-
+    {
         static void Main(string[] args)
         {
             Game.Init();
 
             Game.Cases();
-                
-            
-           
-            }
         }
     }
+}

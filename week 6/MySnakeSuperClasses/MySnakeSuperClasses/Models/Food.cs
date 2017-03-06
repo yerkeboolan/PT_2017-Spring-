@@ -61,10 +61,4 @@ namespace MySnakeSuperClasses.Models
 }
 
 
-    /* while (Game.snake.body.Contains(p) ||
-                  Game.wall.body.Contains(p))
-                p = new Point(new Random().Next(0, 70), new Random().Next(0, 35));
-            body = new List<Point> { p }; */
-
-
 

@@ -18,6 +18,7 @@ namespace MySnakeSuperClasses.Models
         public static Wall wall;
 
         public static Thread SnakeMover;
+       
 
 
         public static void Init()
@@ -42,10 +43,12 @@ namespace MySnakeSuperClasses.Models
             food_body.Add(new Point(0, 0));
             food = new Food(ConsoleColor.Green, '$', food_body);
 
+
             Draw();
 
             SnakeMover = new Thread(snake.Move);
             SnakeMover.Start();
+            
         }
 
         public static void Draw()
@@ -55,8 +58,6 @@ namespace MySnakeSuperClasses.Models
             food.Draw();
             wall.Draw();
         }
-
-        
         public static void Cases()
         {
             while (!GameOver)
@@ -96,5 +97,6 @@ namespace MySnakeSuperClasses.Models
         }
     }
 }
+   
     
     

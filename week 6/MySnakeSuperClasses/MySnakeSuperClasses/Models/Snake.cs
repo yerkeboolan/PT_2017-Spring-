@@ -16,15 +16,17 @@ namespace MySnakeSuperClasses.Models
         int dx, dy;
 
         public Snake(ConsoleColor color, char sign, List<Point> body) : base(color, sign, body) {
-            dy = 1;
             dx = 0;
+            dy = 1;
         }
 
-        public void Move(int a, int b)
+     
+       public void Move(int a, int b)
         {
             dx = a;
             dy = b;
         }
+        
 
         public void Move()
         {
@@ -74,6 +76,7 @@ namespace MySnakeSuperClasses.Models
                         Game.GameOver = true;
                     }
                 }
+
                 Draw();
                 if (CanEat(Game.food))
                 {
@@ -87,7 +90,12 @@ namespace MySnakeSuperClasses.Models
                 {
                     Game.wall.LoadLevel(3);
                 }
-                Thread.Sleep(150);
+                if(body.Count == 15)
+                {
+                    Game.wall.LoadLevel(4);
+                }
+                Thread.Sleep(100);
+                
             }
         }
 
@@ -100,6 +108,9 @@ namespace MySnakeSuperClasses.Models
             }
         }
 
+      
+
+       
 
         public bool CanEat(Food f)
         {
