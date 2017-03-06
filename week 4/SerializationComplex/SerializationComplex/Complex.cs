@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ComplexNum
-{ 
+namespace SerializationComplex
+{
+    [Serializable]
     class Complex
     {
-        
+
         private int x, y;
         public Complex() { }
         public Complex(int _x, int _y)
@@ -50,7 +51,7 @@ namespace ComplexNum
             c.Y = a.Y * b.Y;
             return c;
         }
-        
+
 
         public static Complex operator *(Complex a, Complex b)
         {
@@ -72,36 +73,34 @@ namespace ComplexNum
         public override string ToString()
         {
             int d = gcd(x, y);
-            if(x / d == 0 )
+            if (x / d == 0)
             {
                 return "0";
             }
-            else if(x / d == y / d)
+            else if (x / d == y / d)
             {
                 return "1";
             }
-            else if(y / d == 0)
+            else if (y / d == 0)
             {
                 return "Error";
             }
             else
             {
-                return x / d + "/" + y / d;  
+                return x / d + "/" + y / d;
             }
         }
         static int gcd(int x, int y)
         {
-            if(x == 0)
+            if (x == 0)
             {
                 return y;
-            } else
+            }
+            else
             {
                 return gcd(y % x, x);
             }
         }
 
     }
-    }
-
-    
-
+}
