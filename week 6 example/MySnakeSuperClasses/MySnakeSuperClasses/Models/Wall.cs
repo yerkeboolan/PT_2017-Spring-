@@ -25,7 +25,6 @@ namespace MySnakeSuperClasses.Models
             FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
 
-            
             string line = "";
             int row = 0;
             while((line = sr.ReadLine()) != null)
@@ -39,6 +38,7 @@ namespace MySnakeSuperClasses.Models
                 }
                 row++;
             }
+            Draw();
         }
         public void Delete(List<Point> body)
         {

@@ -10,11 +10,10 @@ namespace ComplexNum
     {
            static void Main(string[] args)
         {
+            
             Console.Write("First complex: ");
             string s = Console.ReadLine();
             string[] arr = s.Split('/');
-
-
 
             Console.Write("\nPress any operation: ");
             string s1 = Console.ReadLine();
@@ -42,5 +41,7 @@ namespace ComplexNum
             Console.Write("\nThe result is:" + c);
             Console.ReadKey();
         }
+
+        
     }
 }

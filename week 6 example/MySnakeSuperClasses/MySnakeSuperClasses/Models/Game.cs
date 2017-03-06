@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
@@ -15,6 +16,8 @@ namespace MySnakeSuperClasses.Models
         public static Snake snake;
         public static Food food;
         public static Wall wall;
+
+        public static Thread SnakeMover;
 
 
         public static void Init()
@@ -30,7 +33,6 @@ namespace MySnakeSuperClasses.Models
             snake_body.Add(new Point(9, 10));
             snake = new Snake(ConsoleColor.Yellow, 'o', snake_body);
 
-
             // wall Init    
             List<Point> wall_body = new List<Point>();
             wall = new Wall(ConsoleColor.Red, '#', wall_body);
@@ -40,8 +42,11 @@ namespace MySnakeSuperClasses.Models
             food_body.Add(new Point(0, 0));
             food = new Food(ConsoleColor.Green, '$', food_body);
 
-        }
+            Draw();
 
+            SnakeMover = new Thread(snake.Move);
+            SnakeMover.Start();
+        }
 
         public static void Draw()
         {
@@ -56,8 +61,6 @@ namespace MySnakeSuperClasses.Models
         {
             while (!GameOver)
             {
-                Draw();
-
                 ConsoleKeyInfo btn = Console.ReadKey();
                 switch (btn.Key)
                 {
@@ -89,18 +92,6 @@ namespace MySnakeSuperClasses.Models
                 }
 
 
-                if (snake.CanEat(food))
-                {
-                   food.SetRandomPosition();
-                }
-                if (snake.body.Count == 4)
-                {
-                   wall.LoadLevel(2);
-                }
-                if (snake.body.Count == 8)
-                {
-                    wall.LoadLevel(3);
-                }
             }
         }
     }

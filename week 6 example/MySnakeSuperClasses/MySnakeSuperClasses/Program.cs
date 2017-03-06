@@ -9,21 +9,11 @@ using System.Threading.Tasks;
 namespace MySnakeSuperClasses
 {
     class Program
-    {
-        public static int d = 0;
-
-        static void MoveSnake()
-        {
-           
-        }
-
+    { 
 
         static void Main(string[] args)
         {
             Game.Init();
-
-            Thread t = new Thread(MoveSnake);
-            t.Start();
 
             Game.Cases();
                 

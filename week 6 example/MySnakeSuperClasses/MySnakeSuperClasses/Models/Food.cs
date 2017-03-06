@@ -11,16 +11,14 @@ namespace MySnakeSuperClasses.Models
     {
         public Food(ConsoleColor color, char sign, List<Point> body) : base(color, sign, body)
         {
-
-            SetRandomPosition();
             Delete();
+            SetRandomPosition();
         }
         public Food() { }
 
-
-
         public void SetRandomPosition()
         {
+            Delete();
             bool ok = true;
             int x;
             int y;
@@ -32,17 +30,15 @@ namespace MySnakeSuperClasses.Models
                 x = new Random().Next(1, 69);
                 y = new Random().Next(1, 34);
 
+                body[0] = new Point(x, y);
 
-                if (ItisNot(body[0], Game.wall.body) || ItisNot(body[0], Game.snake.body))
+                if (ItisNot(body[0], Game.wall.body) && ItisNot(body[0], Game.snake.body))
                 {
                     ok = true;
                 }
-                body[0] = new Point(x, y);
-
             }
+            Draw();
         }
-
-
 
         public void Delete()
         {

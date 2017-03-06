@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace ComplexNum
 {
+    [Serializable]
     class Complex
     {
+        
         private int x, y;
         public Complex() { }
         public Complex(int _x, int _y)
