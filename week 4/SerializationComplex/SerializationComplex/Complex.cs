@@ -88,7 +88,7 @@ namespace SerializationComplex
             else
             {
                 return x / d + "/" + y / d;
-            }
+            }   
         }
         static int gcd(int x, int y)
         {

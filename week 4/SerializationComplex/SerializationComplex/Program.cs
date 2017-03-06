@@ -1,47 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SerializationComplex
 {
-    class Program
+   internal class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            Console.WriteLine("BinaryFormatter serialization/deserialization\n");
+            binaryFormatter();
+        } 
 
-            Console.Write("First complex: ");
-            string s = Console.ReadLine();
-            string[] arr = s.Split('/');
+        private static void binaryFormatter()
+        {
+            // Serialization
+            var a = new Complex(243, 869);
+            var b = new Complex(68, 134);
+            var c = new Complex(4679, 4978);
+            FileStream fileStream = new FileStream("complex.bf", FileMode.Create, FileAccess.Write);
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
 
-            Console.Write("\nPress any operation: ");
-            string s1 = Console.ReadLine();
+            binaryFormatter.Serialize(fileStream, a);
+            binaryFormatter.Serialize(fileStream, b);
+            binaryFormatter.Serialize(fileStream, c);
+            fileStream.Close();
 
-            Console.Write("\nSecond number: ");
-            string s2 = Console.ReadLine();
-            string[] arr1 = s2.Split('/');
+           fileStream = new FileStream("complex.bf", FileMode.Open, FileAccess.Read);
+            //Deserialization
+
+            var newA = binaryFormatter.Deserialize(fileStream) as Complex;
+            var newB = binaryFormatter.Deserialize(fileStream) as Complex;
+            var newC = binaryFormatter.Deserialize(fileStream) as Complex;
+
+            fileStream.Close();
+
+            Console.WriteLine(newA + "\n");
+            Console.WriteLine(newB + "\n");
+            Console.WriteLine(newC);
+
+            
+            Console.ReadKey(); 
 
 
-            Complex a = new Complex(int.Parse(arr[0]), int.Parse(arr[1]));
-            Complex b = new Complex(int.Parse(arr1[0]), int.Parse(arr1[1]));
-            Complex c;
-
-            if (s1 == "+")
-            {
-                c = a + b;
-            }
-            else if (s1 == "*")
-            {
-                c = a * b;
-            }
-            else
-            {
-                c = a / b;
-            }
-
-            Console.Write("\nThe result is:" + c);
-            Console.ReadKey();
         }
 
     }
