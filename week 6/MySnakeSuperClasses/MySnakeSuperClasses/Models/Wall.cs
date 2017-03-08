@@ -19,7 +19,8 @@ namespace MySnakeSuperClasses.Models
         public void LoadLevel(int level)
         {
             Delete(body);
-            body.Clear();
+            body.Clear(); 
+        
 
             string filename = string.Format(@"Levels\level{0}.txt", level);
             FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);

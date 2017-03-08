@@ -16,10 +16,9 @@ namespace MySnakeSuperClasses.Models
         public static Snake snake;
         public static Food food;
         public static Wall wall;
-
+        
+        
         public static Thread SnakeMover;
-       
-
 
         public static void Init()
         {
@@ -48,7 +47,7 @@ namespace MySnakeSuperClasses.Models
 
             SnakeMover = new Thread(snake.Move);
             SnakeMover.Start();
-            
+
         }
 
         public static void Draw()
@@ -86,17 +85,30 @@ namespace MySnakeSuperClasses.Models
                         food.save();
                         break;
                     case ConsoleKey.F3:
-                        snake.release();
-                        wall.release();
-                        food.release();
+                        loadGame();
                         break;
                 }
 
 
             }
         }
+
+         public static void loadGame()
+        {
+            SnakeMover.Abort();
+
+            Console.Clear();
+            
+            wall.release();
+            snake.release();
+            food.release();
+
+            Draw();
+
+            SnakeMover = new Thread(snake.Move);
+            SnakeMover.Start();
+
+
+        } 
     }
 }
-   
-    
-    

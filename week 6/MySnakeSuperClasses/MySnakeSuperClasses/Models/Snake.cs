@@ -57,23 +57,23 @@ namespace MySnakeSuperClasses.Models
                     if (Game.snake.body[0].x == Game.wall.body[i].x && Game.snake.body[0].y == Game.wall.body[i].y)
                     {
                         Console.Clear();
-                        Console.BackgroundColor = ConsoleColor.White;
                         Console.SetCursorPosition(10, 10);
                         Console.WriteLine("GAME OVER!");
                         Console.ReadKey();
                         Game.GameOver = true;
+                        
                     }
                 }
                 for (int i = 2; i < Game.snake.body.Count; i++)
                 {
                     if (Game.snake.body[0].x == Game.snake.body[i].x && Game.snake.body[0].y == Game.snake.body[i].y)
                     {
-                        Console.Clear();
-                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.Clear();    
                         Console.SetCursorPosition(10, 10);
                         Console.WriteLine("GAME OVER!");
                         Console.ReadKey();
                         Game.GameOver = true;
+                        
                     }
                 }
 

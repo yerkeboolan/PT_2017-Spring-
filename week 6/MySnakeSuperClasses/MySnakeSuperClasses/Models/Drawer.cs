@@ -49,6 +49,8 @@ namespace MySnakeSuperClasses.Models
 
         public void release()
         {
+     
+
             Type t = this.GetType();
             FileStream fs = new FileStream(String.Format("{0}.dat", t.Name), FileMode.OpenOrCreate, FileAccess.ReadWrite);
             BinaryFormatter bf = new BinaryFormatter();
@@ -58,7 +60,12 @@ namespace MySnakeSuperClasses.Models
                 Game.snake = bf.Deserialize(fs) as Snake;
             if (t == typeof(Food))
                 Game.food = bf.Deserialize(fs) as Food;
-           fs.Close();
+
+           
+            
+           
+            fs.Close();
+
         }
     
 

@@ -69,6 +69,7 @@ namespace SerializationComplex
             return c;
 
         }
+       
 
         public override string ToString()
         {

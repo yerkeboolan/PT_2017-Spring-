@@ -17,7 +17,7 @@ namespace DirectoryExample
 
                 foreach (FileInfo f in files)
                 {
-                    Console.WriteLine(f.Name);
+                    if(f == )
                 }
 
                 Console.ReadKey();

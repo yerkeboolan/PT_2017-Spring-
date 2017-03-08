@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SerializationComplex
 {
-   internal class Program
+  class Program
     {
         public static void Main(string[] args)
         {
@@ -19,9 +19,9 @@ namespace SerializationComplex
         private static void binaryFormatter()
         {
             // Serialization
-            var a = new Complex(243, 869);
-            var b = new Complex(68, 134);
-            var c = new Complex(4679, 4978);
+            Complex a = new Complex(243, 869);
+            Complex b = new Complex(68, 134);
+            Complex c = new Complex(4679, 4978);
             FileStream fileStream = new FileStream("complex.bf", FileMode.Create, FileAccess.Write);
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
@@ -33,9 +33,9 @@ namespace SerializationComplex
            fileStream = new FileStream("complex.bf", FileMode.Open, FileAccess.Read);
             //Deserialization
 
-            var newA = binaryFormatter.Deserialize(fileStream) as Complex;
-            var newB = binaryFormatter.Deserialize(fileStream) as Complex;
-            var newC = binaryFormatter.Deserialize(fileStream) as Complex;
+            Complex newA = binaryFormatter.Deserialize(fileStream) as Complex;
+            Complex newB = binaryFormatter.Deserialize(fileStream) as Complex;
+            Complex newC = binaryFormatter.Deserialize(fileStream) as Complex;
 
             fileStream.Close();
 

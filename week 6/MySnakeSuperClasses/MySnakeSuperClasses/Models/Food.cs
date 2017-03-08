@@ -18,23 +18,34 @@ namespace MySnakeSuperClasses.Models
 
         public void SetRandomPosition()
         {
-            Delete();
-            bool ok = true;
-            int x;
-            int y;
 
-            while (ok)
+            int x = new Random().Next(0, 70);
+            int y = new Random().Next(0, 35);
+
+
+            body[0] = new Point(x, y);
+
+            CollesionSW(body[0]);
+
+        }
+
+        public void CollesionSW(Point p)
+        {
+            for (int i = 0; i < Game.wall.body.Count; i++)
             {
-                ok = false;
 
-                x = new Random().Next(1, 69);
-                y = new Random().Next(1, 34);
-
-                body[0] = new Point(x, y);
-
-                if (ItisNot(body[0], Game.wall.body) && ItisNot(body[0], Game.snake.body))
+                if (p.x == Game.wall.body[i].x && p.y == Game.wall.body[i].y)
                 {
-                    ok = true;
+                    SetRandomPosition();
+                }
+            }
+
+            for (int i = 0; i < Game.snake.body.Count; i++)
+            {
+
+                if (p.x == Game.snake.body[i].x && p.y == Game.snake.body[i].y)
+                {
+                    SetRandomPosition();
                 }
             }
             Draw();
@@ -45,20 +56,11 @@ namespace MySnakeSuperClasses.Models
             Console.SetCursorPosition(body[0].x, body[0].y);
             Console.Write(' ');
         }
-
-        public bool ItisNot(Point food, List<Point> body)
-        {
-            foreach (Point p in body)
-            {
-                if (food.x == p.x && food.y == p.y)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
     }
 }
+
+       
+
 
 
 
