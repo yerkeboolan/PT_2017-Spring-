@@ -19,15 +19,16 @@ namespace SerializationComplex
         private static void binaryFormatter()
         {
             // Serialization
-            Complex a = new Complex(243, 869);
-            Complex b = new Complex(68, 134);
-            Complex c = new Complex(4679, 4978);
-            FileStream fileStream = new FileStream("complex.bf", FileMode.Create, FileAccess.Write);
+            Complex a = new Complex(245, 365);
+            Complex b = new Complex(554, 998);
+            Complex c = new Complex(7845, 8564);
+            FileStream fileStream = new FileStream("complex.bf", FileMode.OpenOrCreate, FileAccess.ReadWrite);
             BinaryFormatter binaryFormatter = new BinaryFormatter();
 
             binaryFormatter.Serialize(fileStream, a);
             binaryFormatter.Serialize(fileStream, b);
             binaryFormatter.Serialize(fileStream, c);
+
             fileStream.Close();
 
            fileStream = new FileStream("complex.bf", FileMode.Open, FileAccess.Read);
@@ -37,13 +38,14 @@ namespace SerializationComplex
             Complex newB = binaryFormatter.Deserialize(fileStream) as Complex;
             Complex newC = binaryFormatter.Deserialize(fileStream) as Complex;
 
-            fileStream.Close();
-
             Console.WriteLine(newA + "\n");
             Console.WriteLine(newB + "\n");
             Console.WriteLine(newC);
 
-            
+
+            fileStream.Close();
+
+
             Console.ReadKey(); 
 
 
