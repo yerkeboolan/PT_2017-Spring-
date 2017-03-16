@@ -21,6 +21,8 @@ namespace Calculator
             display.Text = "0";
         }
 
+        
+
         private void numbers_click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
@@ -35,15 +37,14 @@ namespace Calculator
             Button btn = sender as Button;
             calc.firstnum = double.Parse(display.Text); 
             calc.operation = btn.Text;
-            display.Text = "";
-            
+            display.Text = "";       
         }
 
         private void result_click(object sender, EventArgs e)
         {
             calc.secondnum = double.Parse(display.Text);
             calc.calculate();
-            display.Text = calc.result.ToString();
+            display.Text = calc.result.ToString();       
         }
 
         private void Ce_click(object sender, EventArgs e)
@@ -59,6 +60,7 @@ namespace Calculator
             calc.secondnum = 0;
             calc.result = 0;
             calc.operation = "";
+            display.Text = "0";
         }
 
         private void erase_click(object sender, EventArgs e)
@@ -67,6 +69,8 @@ namespace Calculator
             {
                 display.Text = display.Text.Remove(display.Text.Length - 1);
             }
+
+           
         }
 
         private void plusminus_click(object sender, EventArgs e)
@@ -79,14 +83,40 @@ namespace Calculator
 
         private void p_click(object sender, EventArgs e)
         {
-            if (display.Text == ".")
-                display.Text = "0.";
+            if (display.Text == ",")
+                display.Text = "0,";
 
-            if (display.Text.IndexOf(".") == -1)
-                display.Text = display.Text + ".";
+            if (display.Text.IndexOf(",") == -1)
+                display.Text = display.Text + ",";
         }
 
-       
+        private void percentage_click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            calc.firstnum = double.Parse(display.Text);
+            calc.operation = btn.Text;
+            display.Text = "";
         }
+
+        private void sqr_click(object sender, EventArgs e)
+        {
+            if (display.Text != "")
+                display.Text = Math.Pow(double.Parse(display.Text), 2).ToString();
+        }
+
+           private void sqrt_click(object sender, EventArgs e)
+            {
+            if (display.Text != "")
+                display.Text = Math.Sqrt(double.Parse(display.Text)).ToString();
+
+            }
+        private void nbr_click(object sender, EventArgs e)
+        {
+            if (display.Text != "")
+                display.Text = (1 / (double.Parse(display.Text))).ToString();
+        }
+
+      
+    }
     }
 

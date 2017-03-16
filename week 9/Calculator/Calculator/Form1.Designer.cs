@@ -219,7 +219,7 @@
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(61, 48);
             this.button12.TabIndex = 12;
-            this.button12.Text = ".";
+            this.button12.Text = ",";
             this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.p_click);
             // 
@@ -338,6 +338,7 @@
             this.button21.TabIndex = 21;
             this.button21.Text = "√";
             this.button21.UseVisualStyleBackColor = false;
+            this.button21.Click += new System.EventHandler(this.sqrt_click);
             // 
             // button22
             // 
@@ -350,6 +351,7 @@
             this.button22.TabIndex = 22;
             this.button22.Text = "x^2";
             this.button22.UseVisualStyleBackColor = false;
+            this.button22.Click += new System.EventHandler(this.sqr_click);
             // 
             // button23
             // 
@@ -362,6 +364,7 @@
             this.button23.TabIndex = 23;
             this.button23.Text = "1/x";
             this.button23.UseVisualStyleBackColor = false;
+            this.button23.Click += new System.EventHandler(this.nbr_click);
             // 
             // button24
             // 
@@ -381,7 +384,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.ClientSize = new System.Drawing.Size(298, 404);
+            this.ClientSize = new System.Drawing.Size(301, 404);
             this.Controls.Add(this.button24);
             this.Controls.Add(this.button23);
             this.Controls.Add(this.button22);

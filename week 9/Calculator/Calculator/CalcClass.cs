@@ -12,7 +12,7 @@ namespace Calculator
         public double secondnum;
         public double result;
         public string operation;
-
+        public double Result;
 
 
         public void calculate()
@@ -32,9 +32,11 @@ namespace Calculator
                     result = firstnum / secondnum;
                     break;
                 case "%":
-                    result = firstnum / 100;
+                    result = (firstnum * secondnum) / 100;
                     break;
             }
         }
+
+        }
     }
-}
+
