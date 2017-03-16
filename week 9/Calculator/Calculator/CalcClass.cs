@@ -12,7 +12,7 @@ namespace Calculator
         public double secondnum;
         public double result;
         public string operation;
-        public double Result;
+        
 
 
         public void calculate()

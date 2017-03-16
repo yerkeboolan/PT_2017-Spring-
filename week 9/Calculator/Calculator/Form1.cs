@@ -14,11 +14,9 @@ namespace Calculator
     {
         CalcClass calc = new CalcClass();
 
-
-        public Form1()
+       public Form1()
         {
             InitializeComponent();
-            display.Text = "0";
         }
 
         
@@ -98,11 +96,11 @@ namespace Calculator
             display.Text = "";
         }
 
-        private void sqr_click(object sender, EventArgs e)
+      /*  private void sqr_click(object sender, EventArgs e)
         {
             if (display.Text != "")
                 display.Text = Math.Pow(double.Parse(display.Text), 2).ToString();
-        }
+        } */
 
            private void sqrt_click(object sender, EventArgs e)
             {
@@ -115,7 +113,47 @@ namespace Calculator
             if (display.Text != "")
                 display.Text = (1 / (double.Parse(display.Text))).ToString();
         }
+        
+      /*  private void digitCalculate_click(object sender, EventArgs e)
+        {
+            if(display.Text == 
+            {
+                // Memory Clear
+                Memorystore = 0;
+                return;
+            }
 
+            if(ButtonText == "MR")
+            {
+                // Memory Recall
+                display.Text = Memorystore.ToString();
+                return;
+            }
+
+            if(ButtonText == "MS")
+            {
+                // Memory save
+                Memorystore = Decimal.Parse(display.Text);
+                return;
+            }
+
+            if(ButtonText == "M-")
+            {
+                Memorystore -= endresult;
+                display.Text = Memorystore.ToString();
+                return;
+            }
+
+            if(ButtonText == "M+")
+            {
+                Memorystore += endresult;
+                display.Text = Memorystore.ToString();
+                return;
+            }
+
+
+
+        }  */
       
     }
     }
