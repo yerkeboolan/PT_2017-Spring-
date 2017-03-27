@@ -12,7 +12,7 @@ namespace Calculator
         public double secondnum;
         public double result;
         public string operation;
-        
+        public int n;
 
 
         public void calculate()
@@ -34,9 +34,22 @@ namespace Calculator
                 case "%":
                     result = (firstnum * secondnum) / 100;
                     break;
+                case "x^y":
+                    result = Math.Pow(firstnum, secondnum);
+                    break;
             }
         }
 
+
+        public int fact(int n)
+        {
+            int res;
+            res = 1;
+            for (int i = 1; i <= n; i++)
+                res *= i;
+            return res;
         }
+
+    }
     }
 

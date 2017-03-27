@@ -14,7 +14,9 @@ namespace Calculator
     {
         CalcClass calc = new CalcClass();
 
-       public Form1()
+
+
+        public Form1()
         {
             InitializeComponent();
         }
@@ -66,7 +68,9 @@ namespace Calculator
             if (display.Text != "")
             {
                 display.Text = display.Text.Remove(display.Text.Length - 1);
-            }
+            }   
+           
+
 
            
         }
@@ -112,49 +116,77 @@ namespace Calculator
         {
             if (display.Text != "")
                 display.Text = (1 / (double.Parse(display.Text))).ToString();
+            
         }
-        
-      /*  private void digitCalculate_click(object sender, EventArgs e)
+
+        private void pow_click(object sender, EventArgs e)
         {
-            if(display.Text == 
-            {
-                // Memory Clear
-                Memorystore = 0;
-                return;
-            }
+            Button btn = sender as Button;
+            calc.firstnum = double.Parse(display.Text);
+            calc.operation = btn.Text;
+            display.Text = "";
+        }
 
-            if(ButtonText == "MR")
-            {
-                // Memory Recall
-                display.Text = Memorystore.ToString();
-                return;
-            }
+        private void fact_click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            
+            
+        }
 
-            if(ButtonText == "MS")
-            {
-                // Memory save
-                Memorystore = Decimal.Parse(display.Text);
-                return;
-            }
+        private void sin_click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
 
-            if(ButtonText == "M-")
-            {
-                Memorystore -= endresult;
-                display.Text = Memorystore.ToString();
-                return;
-            }
+            double n;
+            n = calc.firstnum;
 
-            if(ButtonText == "M+")
-            {
-                Memorystore += endresult;
-                display.Text = Memorystore.ToString();
-                return;
-            }
+            n = double.Parse(display.Text);
+            display.Text = Math.Sin(double.Parse(display.Text)).ToString();
+        }
 
 
 
-        }  */
-      
+        /*  private void digitCalculate_click(object sender, EventArgs e)
+          {
+              if(display.Text == 
+              {
+                  // Memory Clear
+                  Memorystore = 0;
+                  return;
+              }
+
+              if(ButtonText == "MR")
+              {
+                  // Memory Recall
+                  display.Text = Memorystore.ToString();
+                  return;
+              }
+
+              if(ButtonText == "MS")
+              {                  // Memory save
+                  Memorystore = Decimal.Parse(display.Text);
+                  return;
+              }
+
+              if(ButtonText == "M-")
+              {
+                  Memorystore -= endresult;
+                  display.Text = Memorystore.ToString();
+                  return;
+              }
+
+              if(ButtonText == "M+")
+              {
+                  Memorystore += endresult;
+                  display.Text = Memorystore.ToString();
+                  return;
+              }
+
+
+
+          }  */
+
     }
     }
 
