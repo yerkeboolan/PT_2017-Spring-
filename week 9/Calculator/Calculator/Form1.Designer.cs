@@ -63,6 +63,7 @@
             this.button32 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
             this.button34 = new System.Windows.Forms.Button();
+            this.button35 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // display
@@ -317,9 +318,9 @@
             this.button19.BackColor = System.Drawing.Color.PowderBlue;
             this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button19.ForeColor = System.Drawing.Color.Blue;
-            this.button19.Location = new System.Drawing.Point(304, 349);
+            this.button19.Location = new System.Drawing.Point(388, 349);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(145, 48);
+            this.button19.Size = new System.Drawing.Size(61, 48);
             this.button19.TabIndex = 19;
             this.button19.Text = "=";
             this.button19.UseVisualStyleBackColor = false;
@@ -388,6 +389,7 @@
             this.button22.TabIndex = 25;
             this.button22.Text = "MC";
             this.button22.UseVisualStyleBackColor = false;
+            this.button22.Click += new System.EventHandler(this.mc_click);
             // 
             // button25
             // 
@@ -400,6 +402,7 @@
             this.button25.TabIndex = 26;
             this.button25.Text = "MR";
             this.button25.UseVisualStyleBackColor = false;
+            this.button25.Click += new System.EventHandler(this.mr_click);
             // 
             // button26
             // 
@@ -412,6 +415,7 @@
             this.button26.TabIndex = 27;
             this.button26.Text = "MS";
             this.button26.UseVisualStyleBackColor = false;
+            this.button26.Click += new System.EventHandler(this.ms_click);
             // 
             // button27
             // 
@@ -424,6 +428,7 @@
             this.button27.TabIndex = 28;
             this.button27.Text = "M+";
             this.button27.UseVisualStyleBackColor = false;
+            this.button27.Click += new System.EventHandler(this.mplus_click);
             // 
             // button28
             // 
@@ -436,6 +441,7 @@
             this.button28.TabIndex = 29;
             this.button28.Text = "M-";
             this.button28.UseVisualStyleBackColor = false;
+            this.button28.Click += new System.EventHandler(this.mminus_click);
             // 
             // button29
             // 
@@ -473,6 +479,7 @@
             this.button31.TabIndex = 32;
             this.button31.Text = "cos";
             this.button31.UseVisualStyleBackColor = false;
+            this.button31.Click += new System.EventHandler(this.cos_click);
             // 
             // button32
             // 
@@ -511,12 +518,26 @@
             this.button34.Text = "n!";
             this.button34.UseVisualStyleBackColor = false;
             // 
+            // button35
+            // 
+            this.button35.BackColor = System.Drawing.Color.Azure;
+            this.button35.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button35.ForeColor = System.Drawing.Color.Blue;
+            this.button35.Location = new System.Drawing.Point(304, 349);
+            this.button35.Name = "button35";
+            this.button35.Size = new System.Drawing.Size(61, 48);
+            this.button35.TabIndex = 36;
+            this.button35.Text = "exp";
+            this.button35.UseVisualStyleBackColor = false;
+            this.button35.Click += new System.EventHandler(this.exp_click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ClientSize = new System.Drawing.Size(459, 402);
+            this.ClientSize = new System.Drawing.Size(456, 401);
+            this.Controls.Add(this.button35);
             this.Controls.Add(this.button34);
             this.Controls.Add(this.button33);
             this.Controls.Add(this.button32);
@@ -597,6 +618,7 @@
         private System.Windows.Forms.Button button32;
         private System.Windows.Forms.Button button33;
         private System.Windows.Forms.Button button34;
+        private System.Windows.Forms.Button button35;
     }
 }
 

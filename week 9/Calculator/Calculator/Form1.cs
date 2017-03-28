@@ -50,7 +50,6 @@ namespace Calculator
         private void Ce_click(object sender, EventArgs e)
         {
             display.Clear();
-            display.Text = "0";
         }
 
         private void c_click(object sender, EventArgs e)
@@ -69,6 +68,11 @@ namespace Calculator
             {
                 display.Text = display.Text.Remove(display.Text.Length - 1);
             }   
+
+            if(display.Text == "")
+            {
+                display.Text = "0";
+            }
            
 
 
@@ -138,54 +142,68 @@ namespace Calculator
         {
             Button btn = sender as Button;
 
-            double n;
-            n = calc.firstnum;
-
-            n = double.Parse(display.Text);
-            display.Text = Math.Sin(double.Parse(display.Text)).ToString();
+            display.Text = Math.Sin((double.Parse(display.Text) * Math.PI) / 180).ToString();
         }
 
+        private void cos_click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
 
+            display.Text = Math.Cos((double.Parse(display.Text) * Math.PI) / 180).ToString();
+        }
+        
+        private void tan_click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
 
-        /*  private void digitCalculate_click(object sender, EventArgs e)
-          {
-              if(display.Text == 
-              {
-                  // Memory Clear
-                  Memorystore = 0;
-                  return;
-              }
+            display.Text = Math.Tan((double.Parse(display.Text) * Math.PI) / 180).ToString();
+        }
 
-              if(ButtonText == "MR")
-              {
-                  // Memory Recall
-                  display.Text = Memorystore.ToString();
-                  return;
-              }
+        private void exp_click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
 
-              if(ButtonText == "MS")
-              {                  // Memory save
-                  Memorystore = Decimal.Parse(display.Text);
-                  return;
-              }
+            display.Text = Math.Exp(double.Parse(display.Text)).ToString();
+        }
 
-              if(ButtonText == "M-")
-              {
-                  Memorystore -= endresult;
-                  display.Text = Memorystore.ToString();
-                  return;
-              }
+        private void ms_click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            calc.memory = double.Parse(display.Text);
+        }
 
-              if(ButtonText == "M+")
-              {
-                  Memorystore += endresult;
-                  display.Text = Memorystore.ToString();
-                  return;
-              }
+        private void mr_click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            display.Text = "";
+            display.Text = calc.memory.ToString();
+            
+        }
 
+        private void mc_click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            calc.memory = 0;
+        }
 
+        private void mplus_click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
 
-          }  */
+            calc.mplus = double.Parse(display.Text);
+            calc.result = calc.memory + calc.mplus;
+            // dkjasopdjsaps
+            
+        }
+
+        private void mminus_click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+
+            calc.mminus = double.Parse(display.Text);
+            calc.result = calc.memory + calc.mminus;
+            // adjioshdfoahio
+        }
 
     }
     }

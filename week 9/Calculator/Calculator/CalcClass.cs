@@ -12,7 +12,9 @@ namespace Calculator
         public double secondnum;
         public double result;
         public string operation;
-        public int n;
+        public double memory;
+        public double mplus;
+        public double mminus;
 
 
         public void calculate()
