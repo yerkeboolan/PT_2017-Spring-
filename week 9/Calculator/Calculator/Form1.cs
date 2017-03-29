@@ -37,19 +37,44 @@ namespace Calculator
             Button btn = sender as Button;
             calc.firstnum = double.Parse(display.Text); 
             calc.operation = btn.Text;
+            calc.again = false;
             display.Text = "";       
+        }
+
+        private void OperationOnce_click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            calc.firstnum = double.Parse(display.Text);
+            calc.operation = btn.Text;
+            calc.CalculateOnce();
+            if (calc.mistake)
+            {
+                display.Text = "Error";
+                calc = new CalcClass();
+            } else
+            {
+                display.Text = calc.result.ToString();
+            }
         }
 
         private void result_click(object sender, EventArgs e)
         {
             calc.secondnum = double.Parse(display.Text);
             calc.calculate();
-            display.Text = calc.result.ToString();       
+            if (calc.mistake)
+            {
+                display.Text = "Error";
+            }
+            else
+            {
+                display.Text = calc.result.ToString();
+            }
         }
 
         private void Ce_click(object sender, EventArgs e)
         {
             display.Clear();
+            display.Text = "0"; 
         }
 
         private void c_click(object sender, EventArgs e)
@@ -72,11 +97,7 @@ namespace Calculator
             if(display.Text == "")
             {
                 display.Text = "0";
-            }
-           
-
-
-           
+            }  
         }
 
         private void plusminus_click(object sender, EventArgs e)
@@ -96,75 +117,7 @@ namespace Calculator
                 display.Text = display.Text + ",";
         }
 
-        private void percentage_click(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-            calc.firstnum = double.Parse(display.Text);
-            calc.operation = btn.Text;
-            display.Text = "";
-        }
-
-      /*  private void sqr_click(object sender, EventArgs e)
-        {
-            if (display.Text != "")
-                display.Text = Math.Pow(double.Parse(display.Text), 2).ToString();
-        } */
-
-           private void sqrt_click(object sender, EventArgs e)
-            {
-            if (display.Text != "")
-                display.Text = Math.Sqrt(double.Parse(display.Text)).ToString();
-
-            }
-        private void nbr_click(object sender, EventArgs e)
-        {
-            if (display.Text != "")
-                display.Text = (1 / (double.Parse(display.Text))).ToString();
-            
-        }
-
-        private void pow_click(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-            calc.firstnum = double.Parse(display.Text);
-            calc.operation = btn.Text;
-            display.Text = "";
-        }
-
-        private void fact_click(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-            
-            
-        }
-
-        private void sin_click(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-
-            display.Text = Math.Sin((double.Parse(display.Text) * Math.PI) / 180).ToString();
-        }
-
-        private void cos_click(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-
-            display.Text = Math.Cos((double.Parse(display.Text) * Math.PI) / 180).ToString();
-        }
-        
-        private void tan_click(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-
-            display.Text = Math.Tan((double.Parse(display.Text) * Math.PI) / 180).ToString();
-        }
-
-        private void exp_click(object sender, EventArgs e)
-        {
-            Button btn = sender as Button;
-
-            display.Text = Math.Exp(double.Parse(display.Text)).ToString();
-        }
+     
 
         private void ms_click(object sender, EventArgs e)
         {
@@ -192,7 +145,8 @@ namespace Calculator
 
             calc.mplus = double.Parse(display.Text);
             calc.result = calc.memory + calc.mplus;
-            // dkjasopdjsaps
+            calc.memory = calc.result;
+            
             
         }
 
@@ -201,10 +155,12 @@ namespace Calculator
             Button btn = sender as Button;
 
             calc.mminus = double.Parse(display.Text);
-            calc.result = calc.memory + calc.mminus;
-            // adjioshdfoahio
+            calc.result = calc.memory - calc.mminus;
+            calc.memory = calc.result;
+            
         }
 
+       
     }
     }
 
