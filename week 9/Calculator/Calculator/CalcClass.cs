@@ -12,7 +12,7 @@ namespace Calculator
         public double secondnum;
         public double result;
         public string operation;
-            
+
         public double memory;
         public double mplus;
         public double mminus;
@@ -20,7 +20,9 @@ namespace Calculator
 
         public bool mistake = false;
         public bool again = false;
+
         public double foronce = 1;
+
 
 
         public void calculate()
@@ -71,7 +73,7 @@ namespace Calculator
             }
             else if (again)
             {
-                switch(operation)
+                switch (operation)
                 {
                     case "+":
                         result += recent;
@@ -83,7 +85,7 @@ namespace Calculator
                         result *= recent;
                         break;
                     case "/":
-                        if(secondnum == 0)
+                        if (secondnum == 0)
                         {
                             mistake = false;
                         }
@@ -101,17 +103,20 @@ namespace Calculator
                 }
             }
             again = true;
+
+
         }
+
 
 
         public void CalculateOnce()
         {
-            switch(operation)
+            switch (operation)
             {
                 case "n!":
-                    if(firstnum % 1 == 0)
+                    if (firstnum % 1 == 0)
                     {
-                        for(int i = 2; i < firstnum + 1; i++)
+                        for (int i = 2; i < firstnum + 1; i++)
                         {
                             foronce *= i;
                         }
@@ -124,7 +129,7 @@ namespace Calculator
                     }
                     break;
                 case "1/x":
-                    if(firstnum == 0)
+                    if (firstnum == 0)
                     {
                         mistake = true;
                     }
@@ -146,24 +151,28 @@ namespace Calculator
                     result = Math.Tan((firstnum * Math.PI) / 180);
                     break;
                 case "√":
-                    if(firstnum < 0)
+                    if (firstnum < 0)
                     {
                         mistake = true;
                     }
                     result = Math.Sqrt(firstnum);
                     break;
                 case "e^x":
-                    if(firstnum <= 0)
+                    if (firstnum <= 0)
                     {
                         mistake = true;
-                    }   else
+                    }
+                    else
                     {
                         result = Math.Exp(firstnum);
                     }
                     break;
             }
         }
+    }
+}
 
-    }
-    }
+
+
+
 

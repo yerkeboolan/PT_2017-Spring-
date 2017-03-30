@@ -40,6 +40,7 @@ namespace Calculator
             calc.firstnum = double.Parse(display.Text); 
             calc.operation = btn.Text;
             calc.again = false;
+            
             display.Text = "";       
         }
 
@@ -60,7 +61,11 @@ namespace Calculator
         }
 
         private void result_click(object sender, EventArgs e)
-        {
+        { 
+            if(calc.secondnum == 0)
+            {
+                calc.secondnum = calc.firstnum;
+            } else  
             calc.secondnum = double.Parse(display.Text);
             calc.calculate();
             if (calc.mistake)
