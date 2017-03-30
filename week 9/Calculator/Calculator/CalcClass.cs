@@ -12,6 +12,7 @@ namespace Calculator
         public double secondnum;
         public double result;
         public string operation;
+            
         public double memory;
         public double mplus;
         public double mminus;
@@ -131,6 +132,9 @@ namespace Calculator
                     break;
                 case "x^2":
                     result = Math.Pow(firstnum, 2);
+                    break;
+                case "x^3":
+                    result = Math.Pow(firstnum, 3);
                     break;
                 case "sin":
                     result = Math.Sin((firstnum * Math.PI) / 180);

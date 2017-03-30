@@ -13,7 +13,7 @@ namespace Calculator
     public partial class Form1 : Form
     {
         CalcClass calc = new CalcClass();
-
+        
 
 
         public Form1()
@@ -26,10 +26,12 @@ namespace Calculator
         private void numbers_click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
-            if(display.Text == "0")
-                    display.Text = btn.Text;
-           else 
-            display.Text += btn.Text;
+            if (display.Text == "Error")
+                display.Text = btn.Text;
+            else if (display.Text == "0")
+                display.Text = btn.Text;
+            else
+                display.Text += btn.Text;
         }
 
         private void operation_click(object sender, EventArgs e)
@@ -74,6 +76,7 @@ namespace Calculator
         private void Ce_click(object sender, EventArgs e)
         {
             display.Clear();
+            calc.memory = 0;
             display.Text = "0"; 
         }
 
