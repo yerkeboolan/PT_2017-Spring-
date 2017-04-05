@@ -62,7 +62,7 @@ namespace Calculator
 
         private void result_click(object sender, EventArgs e)
         { 
-            if(calc.secondnum == 0)
+            if(display.Text == "")
             {
                 calc.secondnum = calc.firstnum;
             } else  
