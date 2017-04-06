@@ -17,7 +17,7 @@ namespace MySnakeSuperClasses.Models
         public Food() { }
 
         public void SetRandomPosition()
-        {
+        { 
 
             int x = new Random().Next(0, 70);
             int y = new Random().Next(0, 35);
