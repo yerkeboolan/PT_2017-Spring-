@@ -80,10 +80,10 @@ namespace Asteroids
                 new Point(x-15,y-5),
                 new Point(x,y-25),
                 new Point(x+15,y-5),
-                new Point(x+4,y-5),
-                new Point(x+4,y+25),
-                new Point(x-4,y+25),
-                new Point(x-4,y-5)
+                new Point(x+6,y-5),
+                new Point(x+6,y+25),
+                new Point(x-6,y+25),
+                new Point(x-6,y-5)
             };
 
             path8.AddPolygon(gun);
