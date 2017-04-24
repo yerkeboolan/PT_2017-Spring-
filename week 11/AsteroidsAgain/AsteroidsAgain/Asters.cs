@@ -12,8 +12,8 @@ namespace AsteroidsAgain
         public Point location;
         public SolidBrush sbr;
         public Graphics g;
-        
-        public int dx=15, dy=15;
+
+        public int dx = 15, dy = 15;
 
         public Asters() { }
         public Asters(Graphics _g, Point p)
@@ -26,7 +26,7 @@ namespace AsteroidsAgain
 
         }
 
-         
+
         public void Draw()
         {
             Point[] part1 =
@@ -58,8 +58,34 @@ namespace AsteroidsAgain
             location.X += dx;
             location.Y += dy;
         }
+    }
+}
 
-        public void check(List<Asters> asters)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /*       public void check(List<Asters> asters)
         {
             foreach(Asters ars in asters)
             {
@@ -82,9 +108,6 @@ namespace AsteroidsAgain
             if ((location.X == a.location.X) || (a.location.X == location.X))
                 return true;
             return false;  
-          }
-
-    }
+          } */
 
 
-}

@@ -81,7 +81,7 @@ namespace AsteroidsAgain
             foreach(Asters a in asts)
             {
                 a.Move(Width, Height);
-                a.check(asters);
+                
             }
 
             foreach(Stars s in stars)
