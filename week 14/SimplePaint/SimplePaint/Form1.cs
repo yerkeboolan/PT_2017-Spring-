@@ -44,7 +44,10 @@ namespace SimplePaint
             if(e.Button == MouseButtons.Left)
             {
                 path.Reset();
-                path.AddEllipse(new Rectangle(prev.X, prev.Y, cur.X - prev.X, cur.Y - prev.Y));
+                // path.AddEllipse(new Rectangle(prev.X, prev.Y, cur.X - prev.X, cur.Y - prev.Y));
+                Point[] pt = { new Point(cur.X + (cur.X - prev.X) / 2, prev.Y),
+                               new Point(cur.X, prev.Y)};
+                path.AddPolygon(pt);
                 pictureBox1.Refresh();
             }
         }
