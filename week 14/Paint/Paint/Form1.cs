@@ -28,20 +28,7 @@ namespace Paint
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            paint.prev = e.Location;
-
-
-
-
-
-            if (paint.currentShape == Paintbase.Shape.Fill)
-            {
-                paint.q.Enqueue(e.Location);
-                paint.cur = e.Location;
-                paint.origin = paint.bitmap.GetPixel(e.Location.X, e.Location.Y);
-                paint.Fill();
-            }
-           
+            paint.MouseDown(e);
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)

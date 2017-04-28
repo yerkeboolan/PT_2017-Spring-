@@ -12,7 +12,7 @@ namespace Paint
     public class Paintbase
     {
         public enum Shape {
-            Pen, Line, Ellipse, Triangle, Rectangle, Rhombus,
+            Pen, Line, Ellipse, Triangle, Rectangle, Rhombus, Circle, 
             Fill, Erase
         }
         public Shape currentShape;
@@ -29,7 +29,7 @@ namespace Paint
         public bool Clicked = false;
 
 
-        public Queue<Point> q;
+        public Queue<Point> q = new Queue<Point>();
 
 
         public Paintbase(PictureBox pictureBox)
@@ -48,10 +48,49 @@ namespace Paint
             currentShape = Shape.Pen;
         }
 
+        public void MouseDown(MouseEventArgs mouseEventArgs)
+        {
+            if (currentShape == Shape.Fill)
+            {
+                Fill(mouseEventArgs.Location.X, mouseEventArgs.Location.Y);
+                pictureBox.Refresh();
+                return;
+            }
+            Clicked = true;
+            prev = mouseEventArgs.Location;
+        }
+        private void Fill(int x, int y)
+        {
+            q.Enqueue(new Point(x, y));
+            Color inBegColor = bitmap.GetPixel(x, y);
+            
+            while (q.Count > 0) 
+            {
+                Point v = q.Dequeue();
+                Check(v.X - 1, v.Y, inBegColor);
+                Check(v.X + 1, v.Y, inBegColor);
+                Check(v.X, v.Y - 1, inBegColor);
+                Check(v.X, v.Y + 1, inBegColor);
+            }
+           
+            pictureBox.Refresh();
+        }
+
+        private void Check(int x, int y, Color getPixel)
+        {
+            if (x <= 0 || y <= 0 || x >= pictureBox.Width || y >= pictureBox.Height) return;
+            if (getPixel != bitmap.GetPixel(x, y)) return;
+            bitmap.SetPixel(x, y, color);
+            
+            q.Enqueue(new Point(x, y));
+        }
+
         public void MouseUp(object sender, MouseEventArgs e)
         {
             Clicked = false;
-            g.DrawPath(pen, gp);
+            if (gp != null)
+                g.DrawPath(pen, gp);
+            pictureBox.Refresh();
         }
 
         public void SetColor(Color c)
@@ -87,6 +126,9 @@ namespace Paint
                     break;
                 case "Fill":
                     currentShape = Shape.Fill;
+                    break;
+                case "Circle":
+                    currentShape = Shape.Circle;
                     break;
                
             }
@@ -125,7 +167,8 @@ namespace Paint
 
         public void onPaint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawPath(pen, gp);
+            if(gp != null)
+                e.Graphics.DrawPath(pen, gp);
         }
 
         public void SetWidth(float w)
@@ -134,35 +177,7 @@ namespace Paint
             pen = new Pen(color, w);
         }
 
-        
-
-
-        public void Fill()
-        {
-            while (q.Count > 0)
-            {
-                cur = q.Dequeue();
-                Check(cur.X, cur.Y - 1);
-                Check(cur.X + 1, cur.Y);
-                Check(cur.X, cur.Y + 1);
-                Check(cur.X - 1, cur.Y);
-            }
-            pictureBox.Refresh();
-        }
-
-
-        public void Check(int x, int y)
-        {
-            if (x > 0 && y > 0 && x < pictureBox.Width && y < pictureBox.Height)
-            {
-                if (bitmap.GetPixel(x, y) == origin)
-                {
-                    bitmap.SetPixel(x, y, fill);
-                    q.Enqueue(new Point(x, y));
-                }
-            }
-        } 
-
+     
 
         public void MouseMove(object sender, MouseEventArgs e)
         {
@@ -239,12 +254,15 @@ namespace Paint
                         new Point((e.Location.X - prev.X) / 2 + prev.X, prev.Y)
                     });
                     break;
-               case Shape.Fill:
-                    Fill();
-                    break; 
+               // case Shape.Circle:
+                   
             }
+
+
             pictureBox.Refresh();
         }
 
+       
+        
+        }
     }
-}
