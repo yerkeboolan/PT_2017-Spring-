@@ -12,7 +12,7 @@ namespace Paint
     public class Paintbase
     {
         public enum Shape {
-            Pen, Line, Ellipse, Triangle, Rectangle, Rhombus, Circle, 
+            Pen, Line, Ellipse, Triangle, Rectangle, Rhombus, RTriangle,
             Fill, Erase
         }
         public Shape currentShape;
@@ -24,7 +24,7 @@ namespace Paint
         public Bitmap bitmap;
         public Graphics g;
         public GraphicsPath gp;
-        public Point prev, cur;
+        public Point prev;
         public Color origin, fill;
         public bool Clicked = false;
 
@@ -58,19 +58,21 @@ namespace Paint
             }
             Clicked = true;
             prev = mouseEventArgs.Location;
+
+             
         }
         private void Fill(int x, int y)
         {
             q.Enqueue(new Point(x, y));
-            Color inBegColor = bitmap.GetPixel(x, y);
+            Color inColor = bitmap.GetPixel(x, y);
             
             while (q.Count > 0) 
             {
                 Point v = q.Dequeue();
-                Check(v.X - 1, v.Y, inBegColor);
-                Check(v.X + 1, v.Y, inBegColor);
-                Check(v.X, v.Y - 1, inBegColor);
-                Check(v.X, v.Y + 1, inBegColor);
+                Check(v.X - 1, v.Y, inColor);
+                Check(v.X + 1, v.Y, inColor);
+                Check(v.X, v.Y - 1, inColor);
+                Check(v.X, v.Y + 1, inColor);
             }
            
             pictureBox.Refresh();
@@ -127,9 +129,10 @@ namespace Paint
                 case "Fill":
                     currentShape = Shape.Fill;
                     break;
-                case "Circle":
-                    currentShape = Shape.Circle;
+                case "RTriangle":
+                    currentShape = Shape.RTriangle;
                     break;
+              
                
             }
         }
@@ -148,6 +151,7 @@ namespace Paint
         public void New()
         {
             g.Clear(Color.White);
+            gp.Reset();
             pictureBox.Image = bitmap;
         }
 
@@ -177,7 +181,6 @@ namespace Paint
             pen = new Pen(color, w);
         }
 
-     
 
         public void MouseMove(object sender, MouseEventArgs e)
         {
@@ -200,9 +203,10 @@ namespace Paint
                     gp.AddEllipse(new Rectangle(prev, new Size(e.Location.X - prev.X, e.Location.Y - prev.Y)));
                     break;
                 case Shape.Erase:
+                    gp.Reset();
                     g.FillEllipse(Brushes.White, e.Location.X - 10, e.Location.Y - 10, 20, 20);
                     break;
-                case Shape.Line:
+                case Shape.Line:    
                     gp.Reset();
                     gp.AddLine(prev, e.Location);
                     break;
@@ -247,20 +251,33 @@ namespace Paint
                     break;
                 case Shape.Rhombus:
                     gp.Reset();
-                    gp.AddPolygon(new Point[]{
+                    gp.AddPolygon(new Point[]
+                    {
                         e.Location,
-                        new Point((e.Location.X - prev.X) / 2 + prev.X, (e.Location.Y - prev.Y) * 2 + prev.Y),
+                        new Point((e.Location.X + prev.X) / 2, (e.Location.Y - prev.Y)*2 + prev.Y),
                         new Point(prev.X, e.Location.Y),
-                        new Point((e.Location.X - prev.X) / 2 + prev.X, prev.Y)
+                        new Point(((e.Location.X + prev.X) / 2), prev.Y)
+                    
                     });
                     break;
-               // case Shape.Circle:
+                case Shape.RTriangle:
+                    gp.Reset();
+                    gp.AddPolygon(new Point[]                            {
+                        new Point(e.Location.X, e.Location.Y),
+                            new Point((e.Location.X - prev.X) / 2 + prev.X, (e.Location.Y - prev.Y) + prev.Y),
+                            new Point(prev.X, e.Location.Y),
+                            new Point((e.Location.X - prev.X) / 2 + prev.X, prev.Y)
+                        });
+                    break;
+              
                    
             }
 
 
             pictureBox.Refresh();
         }
+
+
 
        
         
