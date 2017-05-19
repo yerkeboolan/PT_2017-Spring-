@@ -72,7 +72,7 @@ namespace MaxMin
 
         static void Main(string[] args)
         {
-            f2();
+            f1();
         }
     }
 }
